@@ -1,5 +1,5 @@
 # Stochastic Interest Rate Modelling and Prediction
-## Cox-Ingersoll-Ross (CIR) Model — Finance Club, IIT Roorkee · Open Projects 2026
+## Cox-Ingersoll-Ross (CIR) Model
 
 ---
 
@@ -15,11 +15,10 @@ The target metric is **out-of-sample R² ≥ 0.85** across all predicted maturit
 
 ```
 finclub/
-├── CIR_Model_FinClub_IIT_Roorkee.ipynb     # Main notebook (run this)
-├── CIR_Model_FinClub_IIT_Roorkee_executed.ipynb  # Pre-run copy (for reference only)
-├── train_data.csv                           # Training data: all 9 tenors, 2016–2024
-├── test_data.csv                            # Test actuals: 5 tenors (3M–2Y), 2024–2026
-├── test_data_3M.csv                         # Prediction input: 3M only, 2024–2026
+├── CIR_Model_FinClub.ipynb
+├── train_data.csv                           
+├── test_data.csv                            
+├── test_data_3M.csv                         
 └── README.md
 ```
 
@@ -160,7 +159,7 @@ where the reference is the mean training yield curve. This is not just a heurist
 - **Captures the term risk premium**: the systematic component of long yields that risk-neutral CIR cannot price
 - **Minimal extra parameters**: 8 (one $\varphi$ per tenor) vs. 6 continuous parameters for Two-Factor CIR or 3 extra for jump-diffusion
 
-### Section 8 — Critical Analysis (9 Questions)
+### Section 8 — Critical Analysis 
 
 **Q1 — Parameter Sensitivity:** Yield curves are perturbed ±30% around each of $\kappa$, $\theta$, $\sigma$. Result: $\theta$ dominates the long-end level (parallel shift); $\kappa$ controls curve steepness and speed of convergence; $\sigma$ has a second-order effect through $\gamma = \sqrt{\kappa^2 + 2\sigma^2}$.
 
@@ -186,7 +185,7 @@ where the reference is the mean training yield curve. This is not just a heurist
 
 ### On Google Colab (recommended)
 
-1. Upload `CIR_Model_FinClub_IIT_Roorkee.ipynb`, `train_data.csv`, `test_data.csv`, and `test_data_3M.csv` to your Colab session.
+1. Upload `CIR_Model_FinClub.ipynb`, `train_data.csv`, `test_data.csv`, and `test_data_3M.csv` to your Colab session.
 2. If using Google Drive, update the three path constants at the top of the Setup cell:
    ```python
    TRAIN_PATH   = '/content/drive/MyDrive/your_folder/train_data.csv'
@@ -201,7 +200,7 @@ where the reference is the mean training yield curve. This is not just a heurist
 python -m venv venv
 source venv/bin/activate          # Windows: venv\Scripts\activate
 pip install numpy pandas matplotlib seaborn scipy scikit-learn jupyter
-jupyter notebook CIR_Model_FinClub_IIT_Roorkee.ipynb
+jupyter notebook CIR_Model_FinClub.ipynb
 ```
 
 Run all cells in order.
